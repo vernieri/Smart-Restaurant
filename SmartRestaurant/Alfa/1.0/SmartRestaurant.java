@@ -19,4 +19,66 @@ public class SmartRestaurant extends Application {
     public static void main(String[] args) {
         launch(args);
     }  
+  @Override
+    public void start(Stage primaryStage) throws Exception {
+        window = primaryStage;
+        window.setTitle("CARDAPIO");
+        button = new Button("Gerar Pedido");
+
+        ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
+        ChoiceBox<String> choiceBox2 = new ChoiceBox<>();
+        ChoiceBox<String> choiceBox3 = new ChoiceBox<>();
+        ChoiceBox<String> choiceBox4 = new ChoiceBox<>();
+
+        //Paes 
+        choiceBox1.getItems().add("Pao Italiano"); 
+        choiceBox1.getItems().add("Pao Integral");
+        choiceBox1.getItems().addAll("Pao Frances", "Pao 9 Graos", "Pao Parmesao com Oregano", "Pao Tres queijos"); 
+        
+        //Recheio
+        choiceBox2.getItems().add("Frango");
+        choiceBox2.getItems().add("Carne de soja");
+        choiceBox2.getItems().add("Cheddar Cremoso");
+        choiceBox2.getItems().add("Frango Defumado");
+        choiceBox2.getItems().add("Frango Teryak");
+        choiceBox2.getItems().add("Churrasco");
+        choiceBox2.getItems().add("Presunto");
+        
+        //Queijo
+        choiceBox3.getItems().add("Queijo Cheddar");
+        choiceBox3.getItems().add("Queijo Prado");
+        choiceBox3.getItems().add("Queijo Suico");
+        
+        //Bebida
+        choiceBox4.getItems().add("Agua Mineral 500ml");
+        choiceBox4.getItems().add("Agua gaseficada 500ml");
+        choiceBox4.getItems().add("Bebida Pequena");
+        choiceBox4.getItems().add("Bebida Media");
+        choiceBox4.getItems().add("Bebida Grande");
+        
+              
+        
+        //Set a default value
+        choiceBox1.setValue("Pao Italiano");
+
+        //set a default value
+        choiceBox2.setValue("Frango");
+        
+        //Dobrar o recheio ou adicionar Bacon
+        CheckBox box1 = new CheckBox("Dobro do Recheio");
+        CheckBox box2 = new CheckBox("Adicionado Bacon");
+        CheckBox box3 = new CheckBox("Dobro do Queijo");
+        
+        
+        button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3));
+
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(20, 20, 20, 20));
+        layout.getChildren().addAll(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, button);
+
+        scene = new Scene(layout, 400, 300);
+        window.setScene(scene);
+        window.show();
+    }
+    
 }
