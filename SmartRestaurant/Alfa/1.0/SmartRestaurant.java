@@ -104,6 +104,26 @@ public class SmartRestaurant extends Application {
        try {writer.close();} catch (Exception ex) {/*ignore*/}
     }        
     }
+    private String handleOptions(CheckBox box1, CheckBox box2, CheckBox box3){
+        String message = "Bonus:\n";
+
+        if(box1.isSelected()){
+            message += "Dobro do Recheio\n";
+            valor = (valor + 2);
+            
+        }
+
+        if(box2.isSelected()){
+            message += "com Bacon\n";
+            valor = (valor + 2);
+        }
+        
+        if(box3.isSelected()){
+            message += "dobro de queijo\n";
+            valor = (valor + 2);
+        }
+        return message;
+    }    
         
     
 }
