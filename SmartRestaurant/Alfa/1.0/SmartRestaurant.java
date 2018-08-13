@@ -15,6 +15,8 @@ public class SmartRestaurant extends Application {
     Scene scene;
     Button button;
     int valor = 10;
-  
-  // Constructor and Start comming soon... 
+    
+    public static void main(String[] args) {
+        launch(args);
+    }  
 }
