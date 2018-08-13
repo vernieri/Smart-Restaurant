@@ -64,6 +64,12 @@ public class SmartRestaurant extends Application {
         //set a default value
         choiceBox2.setValue("Frango");
         
+        //set a default value
+        choiceBox3.setValue("Queijo Cheddar");
+        
+        //set a default value
+        choiceBox4.setValue("Bebida Media");
+        
         //Dobrar o recheio ou adicionar Bacon
         CheckBox box1 = new CheckBox("Dobro do Recheio");
         CheckBox box2 = new CheckBox("Adicionado Bacon");
