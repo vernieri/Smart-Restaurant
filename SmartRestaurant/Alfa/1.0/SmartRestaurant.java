@@ -8,3 +8,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+public class SmartRestaurant extends Application {
+
+    Stage window;
+    Scene scene;
+    Button button;
+    int valor = 10;
+  
+  // Constructor and Start comming soon... 
+}
