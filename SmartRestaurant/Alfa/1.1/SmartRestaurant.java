@@ -92,29 +92,52 @@ public class SmartRestaurant extends Application {
         window.setScene(scene);
         window.show();
     }
-    //To get the value of the selected item
-    private void getChoices(ChoiceBox<String> choiceBox1, ChoiceBox<String> choiceBox2, ChoiceBox<String> choiceBox3, ChoiceBox<String> choiceBox4, CheckBox box1, CheckBox box2, CheckBox box3){
+    private void getChoices(ChoiceBox<String> choiceBox1, ChoiceBox<String> choiceBox2, ChoiceBox<String> choiceBox3, ChoiceBox<String> choiceBox4, CheckBox box1, CheckBox box2, CheckBox box3, CheckBox box4){
+         
         
         String preco, printar;
-        String food = choiceBox1.getValue() +" "+choiceBox2.getValue()+" "+choiceBox3.getValue()+" "+choiceBox4.getValue()+" "+handleOptions(box1, box2, box3);
-        
-        System.out.println(food);
-        //int preco = valor + 10;
-        System.out.println(valor);
-        preco = Integer.toString(valor);
-        printar = food +"\n [Valor da Compra: "+valor+"]\n";
-    Writer writer = null;
+        int absValor;
+        String food = choiceBox1.getValue() +" "+choiceBox2.getValue()+" "+choiceBox3.getValue()+" "+choiceBox4.getValue()+" "+handleOptions(box1, box2, box3, box4);
+        if(box4.isSelected()){
+            valor = 10;
+            food = "Apenas o lanche";
+            printar = food +"\n Valor da Compra: 10";
+            System.out.println(printar);
+            
+            Writer writer = null;
 
-    try {
-        writer = new BufferedWriter(new OutputStreamWriter(
-              new FileOutputStream("Save.txt"), "utf-8"));
-        writer.write(printar+"\r\n");
-        //write.write()
-    } catch (IOException ex) {
-        // Report
-    } finally {
-       try {writer.close();} catch (Exception ex) {/*ignore*/}
-    }        
+            try {
+                writer = new BufferedWriter(new OutputStreamWriter(
+                      new FileOutputStream("Save.txt"), "utf-8"));
+                writer.write(printar+"\r\n");
+                //write.write()
+            } catch (IOException ex) {
+                // Report
+            } finally {
+               try {writer.close();} catch (Exception ex) {/*ignore*/}
+            }
+        }            
+        
+        else{
+            
+            System.out.println(food);
+            //int preco = valor + 10;
+            System.out.println(valor);
+            preco = Integer.toString(valor);
+            printar = food +"\n [Valor da Compra: "+valor+"]\n";
+        Writer writer = null;
+
+        try {
+            writer = new BufferedWriter(new OutputStreamWriter(
+                  new FileOutputStream("Save.txt"), "utf-8"));
+            writer.write(printar+"\r\n");
+            //write.write()
+        } catch (IOException ex) {
+            // Report
+        } finally {
+           try {writer.close();} catch (Exception ex) {/*ignore*/}
+        }        
+    }
     }
     private String handleOptions(CheckBox box1, CheckBox box2, CheckBox box3){
         String message = "Bonus:\n";
