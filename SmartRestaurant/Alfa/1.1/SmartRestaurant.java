@@ -14,7 +14,8 @@ public class SmartRestaurant extends Application {
     Stage window;
     Scene scene;
     Button button;
-    int valor = 10;
+    int valor;
+    Button clear;;
     
     public static void main(String[] args) {
         launch(args);
@@ -24,6 +25,8 @@ public class SmartRestaurant extends Application {
         window = primaryStage;
         window.setTitle("CARDAPIO");
         button = new Button("Gerar Pedido");
+        clear = new Button("Limpar");
+       
 
         ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
         ChoiceBox<String> choiceBox2 = new ChoiceBox<>();
@@ -74,13 +77,16 @@ public class SmartRestaurant extends Application {
         CheckBox box1 = new CheckBox("Dobro do Recheio");
         CheckBox box2 = new CheckBox("Adicionado Bacon");
         CheckBox box3 = new CheckBox("Dobro do Queijo");
+        CheckBox box4 = new CheckBox("Apenas o Lanche");
+        box4.setSelected(true);        
         
         
-        button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3));
-
+        button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, box4));
+        clear.setOnAction(e->getClear(valor));
+        
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
-        layout.getChildren().addAll(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, button);
+        layout.getChildren().addAll(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, button, clear);
 
         scene = new Scene(layout, 400, 300);
         window.setScene(scene);
@@ -129,6 +135,12 @@ public class SmartRestaurant extends Application {
             valor = (valor + 2);
         }
         return message;
+    }
+
+    private void getClear(int valor){
+        int newValor = 0;
+        valor = newValor; 
+          
     }    
         
     
