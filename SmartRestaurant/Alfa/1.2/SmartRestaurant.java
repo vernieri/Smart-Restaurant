@@ -1,11 +1,19 @@
 package smartrestaurant;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -15,18 +23,20 @@ public class SmartRestaurant extends Application {
     Scene scene;
     Button button;
     int valor;
-    Button clear;;
-    
+    Button clear;
+
     public static void main(String[] args) {
         launch(args);
-    }  
+    }
+
   @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
         window.setTitle("CARDAPIO");
         button = new Button("Gerar Pedido");
         clear = new Button("Limpar");
-       
+        //TextField media = new TextField();
+
 
         ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
         ChoiceBox<String> choiceBox2 = new ChoiceBox<>();
@@ -59,8 +69,7 @@ public class SmartRestaurant extends Application {
         choiceBox4.getItems().add("Bebida Media");
         choiceBox4.getItems().add("Bebida Grande");
         
-              
-        
+       
         //Set a default value
         choiceBox1.setValue("Pao Italiano");
 
@@ -78,20 +87,25 @@ public class SmartRestaurant extends Application {
         CheckBox box2 = new CheckBox("Adicionado Bacon");
         CheckBox box3 = new CheckBox("Dobro do Queijo");
         CheckBox box4 = new CheckBox("Apenas o Lanche");
-        box4.setSelected(true);        
+        box4.setSelected(true);
         
+
+        
+      
         
         button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, box4));
         clear.setOnAction(e->getClear(valor));
-        
+
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
-        layout.getChildren().addAll(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, button, clear);
+        layout.getChildren().addAll(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, box4, button, clear);
 
-        scene = new Scene(layout, 400, 300);
+        scene = new Scene(layout, 300, 350);
         window.setScene(scene);
         window.show();
     }
+
+    //To get the value of the selected item
     private void getChoices(ChoiceBox<String> choiceBox1, ChoiceBox<String> choiceBox2, ChoiceBox<String> choiceBox3, ChoiceBox<String> choiceBox4, CheckBox box1, CheckBox box2, CheckBox box3, CheckBox box4){
          
         
@@ -100,23 +114,97 @@ public class SmartRestaurant extends Application {
         String food = choiceBox1.getValue() +" "+choiceBox2.getValue()+" "+choiceBox3.getValue()+" "+choiceBox4.getValue()+" "+handleOptions(box1, box2, box3, box4);
         if(box4.isSelected()){
             valor = 10;
-            food = "Apenas o lanche";
-            printar = food +"\n Valor da Compra: 10";
-            System.out.println(printar);
-            
-            Writer writer = null;
+            if(box1.isSelected() && box2.isSelected() && box3.isSelected()){
+                valor = 12;
+                food = "Apenas o lanche com todos bonus";
+                printar = food +"\n Valor da Compra: 16";
+                System.out.println(printar);
 
-            try {
-                writer = new BufferedWriter(new OutputStreamWriter(
-                      new FileOutputStream("Save.txt"), "utf-8"));
-                writer.write(printar+"\r\n");
-                //write.write()
-            } catch (IOException ex) {
-                // Report
-            } finally {
-               try {writer.close();} catch (Exception ex) {/*ignore*/}
+                            PrintWriter fw = null;
+
+                            try {
+                                fw = new PrintWriter("users.txt");
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                bw.write(printar);
+                                bw.newLine();
+                                //bw.write(tfPassword.getText());
+                                fw.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();   
+                                fw.close();
+                            }               
+                
             }
-        }            
+            else{
+                if((box1.isSelected() && box2.isSelected()) || (box1.isSelected() && box3.isSelected()) || (box2.isSelected() && box3.isSelected())){
+                    valor = 14;
+                food = "Apenas o lanche com dois bonus";
+                printar = food +"\n Valor da Compra: 14";
+                System.out.println(printar);
+
+                            PrintWriter fw = null;
+
+                            try {
+                                fw = new PrintWriter("users.txt");
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                bw.write(printar);
+                                bw.newLine();
+                                //bw.write(tfPassword.getText());
+                                fw.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();   
+                                fw.close();
+                            }                      
+                    
+            }
+                else{
+                        if(box1.isSelected() || box2.isSelected()){
+                            valor = 12;
+                            food = "Apenas o lanche com todos os bonus";
+                            printar = food +"\n Valor da Compra: 16";
+                            System.out.println(printar);
+
+                            PrintWriter fw = null;
+
+                            try {
+                                fw = new PrintWriter("users.txt");
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                bw.write(printar);
+                                bw.newLine();
+                                //bw.write(tfPassword.getText());
+                                fw.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();   
+                                fw.close();
+                            }   
+                        }
+                        else{
+                            food = "Apenas o lanche";
+                            printar = food +"\n Valor da Compra: 10";
+                            System.out.println(printar);
+
+                            PrintWriter fw = null;
+
+                            try {
+                                fw = new PrintWriter("users.txt");
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                bw.write(printar);
+                                bw.newLine();
+                                //bw.write(tfPassword.getText());
+                                fw.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();   
+                                fw.close();
+                            }
+                            
+                            
+                        }
+                        
+            }
+            
+
+        } 
+        }
         
         else{
             
@@ -125,22 +213,23 @@ public class SmartRestaurant extends Application {
             System.out.println(valor);
             preco = Integer.toString(valor);
             printar = food +"\n [Valor da Compra: "+valor+"]\n";
-        Writer writer = null;
-
-        try {
-            writer = new BufferedWriter(new OutputStreamWriter(
-                  new FileOutputStream("Save.txt"), "utf-8"));
-            writer.write(printar+"\r\n");
-            //write.write()
-        } catch (IOException ex) {
-            // Report
-        } finally {
-           try {writer.close();} catch (Exception ex) {/*ignore*/}
-        }        
+                PrintWriter fw = null;
+                try {
+                    fw = new PrintWriter("users.txt");
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.write(printar);
+                    bw.newLine();
+                    //bw.write(tfPassword.getText());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    fw.close();
+                }          
     }
     }
-    private String handleOptions(CheckBox box1, CheckBox box2, CheckBox box3){
+    
+    private String handleOptions(CheckBox box1, CheckBox box2, CheckBox box3, CheckBox box4){
         String message = "Bonus:\n";
+        valor = 20;
 
         if(box1.isSelected()){
             message += "Dobro do Recheio\n";
@@ -159,12 +248,12 @@ public class SmartRestaurant extends Application {
         }
         return message;
     }
-
+    
     private void getClear(int valor){
         int newValor = 0;
         valor = newValor; 
           
-    }    
-        
+    }
+
     
 }
