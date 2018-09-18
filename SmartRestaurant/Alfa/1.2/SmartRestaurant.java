@@ -89,7 +89,7 @@ public class SmartRestaurant extends Application {
         CheckBox box4 = new CheckBox("Apenas o Lanche");
         box4.setSelected(true);
         
-        //button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, box4));
+        button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1, box2, box3, box4));
         clear.setOnAction(e->getClear(valor));
 
         VBox layout = new VBox(10);
