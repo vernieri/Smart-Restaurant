@@ -1,2 +1,3 @@
-# FFAS
-Fast Food Automated System
+# Smart Restaurant
+Restaurant Automated System
+A System to automate the Restaurant processes
