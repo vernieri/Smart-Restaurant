@@ -1,6 +1,9 @@
 # Smart Restaurant
-![alt text](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-10-23%2016-00-48.png)
-![alt tetx](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-10-23%2016-01-02.png)
+![alt text](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-10-25%2014-20-29.png)
+
+![alt text](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-10-25%2014-20-54.png)
+
+![alt text](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-10-23%2016-01-02.png)
 
 ## Now on dotNet Plataform!
 A Simple dotNet system made using: ASP NET MVC + Web Forms + Windows Form
