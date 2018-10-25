@@ -33,5 +33,9 @@ namespace MVC_GerenciadoDeConteudo.Controllers
             return View();
         }
 
+        public ActionResult Galeria() {
+            ViewBag.Message = "Galeria Page.";
+            return View();
+        }
     }
 }
