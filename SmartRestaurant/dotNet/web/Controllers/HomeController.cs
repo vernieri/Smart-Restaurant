@@ -37,5 +37,10 @@ namespace MVC_GerenciadoDeConteudo.Controllers
             ViewBag.Message = "Galeria Page.";
             return View();
         }
+        public ActionResult Formulario()
+        {
+            //ViewPage = "Form";
+            return View("Formulario");
+        }        
     }
 }
