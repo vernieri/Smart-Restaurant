@@ -12,7 +12,7 @@
 Coming Soon...
 
 ## Now on dotNet Plataform!
-A Simple dotNet system made using: ASP NET MVC + Web Forms + Windows Form
+A Simple dotNet system made using: ASP NET MVC + Web Forms + Windows Form + Java
 
 ## Contributing
 
