@@ -94,7 +94,7 @@ public class SmartRestaurant extends Application {
               
       
         
-        //button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1));
+        button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1));
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
