@@ -104,6 +104,28 @@ public class SmartRestaurant extends Application {
         window.setScene(scene);
         window.show();
     }
-}
+    private void getChoices(ChoiceBox<String> choiceBox1, ChoiceBox<String> choiceBox2, ChoiceBox<String> choiceBox3, ChoiceBox<String> choiceBox4, ChoiceBox<String> choiceBox5){
+        String preco, printar;
+        valor = 30; //TODO
+        String food = choiceBox1.getValue() +" "+choiceBox2.getValue()+" "+choiceBox3.getValue()+" "+choiceBox4.getValue()+" "+choiceBox5.getValue();
+            printar = food +"\n Valor da Compra: "+ valor;
+            System.out.println(printar);
+
+                        PrintWriter fw = null;
+
+                        try {
+                            fw = new PrintWriter("users.txt");
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.write(printar);
+                            bw.newLine();
+                            //bw.write(tfPassword.getText());
+                            fw.close();
+                        } catch (IOException e) {
+                            fw.close();
+                                    
+    }
+    }
+}    
+
 
 //TODO METHODS
