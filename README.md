@@ -6,7 +6,7 @@
 ![alt text](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-10-23%2016-01-02.png)
 
 ## Client Side App(indev)
-![alt text](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-10-30%2016-21-29.png)
+![alt text](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-11-01%2014-23-15.png)
 
 ## Owner Side App
 Coming Soon...
