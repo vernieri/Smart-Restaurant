@@ -90,15 +90,18 @@ public class SmartRestaurant extends Application {
         choiceBox5.getItems().add("Pagamento em Dinheiro");
         
         choiceBox5.setValue("Pagamento no Credito");
-        CheckBox box1 = new CheckBox("Chamar Gerente");
+        //CheckBox box1 = new CheckBox("Chamar Gerente");
               
-      
+        Button gerente = new Button("Chamar Gerente");
+            
+        button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, choiceBox5));
+        gerente.setOnAction(e -> System.out.println("Gerente sendo requisitado no saguao!"));
         
-        button.setOnAction(e -> getChoices(choiceBox1, choiceBox2, choiceBox3, choiceBox4, box1));
+        
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
-        layout.getChildren().addAll(choiceBox1, choiceBox2, choiceBox3, choiceBox4, choiceBox5, box1, button, clear);
+        layout.getChildren().addAll(choiceBox1, choiceBox2, choiceBox3, choiceBox4, choiceBox5, gerente, button, clear);
 
         scene = new Scene(layout, 300, 350);
         window.setScene(scene);
