@@ -8,9 +8,6 @@
 ## Client Side App(indev)
 ![alt text](https://github.com/vernieri/Smart-Restaurant/blob/master/SmartRestaurant/dotNet/web/Content/Captura%20de%20tela%20de%202018-11-01%2014-23-15.png)
 
-## Owner Side App
-Coming Soon...
-
 ## Now on dotNet Plataform!
 A Simple dotNet system made using: ASP NET MVC + Web Forms + Windows Form + Java
 
